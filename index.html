@@ -22,7 +22,7 @@
     </header>
 
     <div class="container">
-        
+
         <!-- Sidebar -->
         <aside class="sidebar">
             <nav>
@@ -44,10 +44,42 @@
                             <h2>Hyper Text Markup Language</h2>
                             <p>Questions: 08 | Duration: 15 mins | Submitted on 5 June 2021</p>
                         </div>
-                        <button class="btn">Update</button>
+                        <button class="btn" id="openPopupBtn">Update</button>
                     </div>
                 </div>
             </section>
+
+            <!-- Popup -->
+            <div class="overlay" id="overlay"></div>
+            <div class="popup" id="popup">
+                <div class="heading">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/240px-HTML5_logo_and_wordmark.svg.png"
+                        alt="HTML5">
+                    <h2>Update Score</h2>
+                </div>
+                <form id="dataForm">
+                    <div class="rank-sec">
+                        <div class="num">1</div>
+                        <label for="rank">Update your <b>Rank</b></label>
+                        <input type="number" id="rank" name="rank"><br><br>
+                    </div>
+
+                    <div class="rank-sec">
+                        <div class="num">2</div>
+                        <label for="percentile">Update your <b>Percentile</b></label>
+                        <input type="number" id="percentile" name="percentile"><br><br>
+                    </div>
+
+                    <div class="rank-sec">
+                        <div class="num">3</div>
+                        <label for="correctAnswer">Update your <b>Current Score (out of 15)</b></label>
+                        <input type="number" id="correctAnswer" name="correctAnswer"><br><br>
+                    </div>
+
+                    <button type="submit" class="btn-cncl">cancel</button>
+                    <button type="submit" class="btn">save ➔</button>
+                </form>
+            </div>
 
             <section class="statistics">
                 <div class="stat-card">
@@ -55,15 +87,17 @@
                     <div class="stats">
                         <div class="stat-item">
                             <div class="emoji"><span>🏆</span></div>
-                            <div class="text-column"><strong>1</strong>Your Rank</div>
+                            <div class="text-column"><strong><span id="displayRank">1</span></strong>Your Rank</div>
                         </div>
                         <div class="stat-item">
                             <div class="emoji"><span>🗓️</span></div>
-                            <div class="text-column"><strong>30%</strong>Percentile</div>
+                            <div class="text-column"><strong><span id="displayPercentile">30</span>%</strong>Percentile
+                            </div>
                         </div>
                         <div class="stat-item">
                             <div class="emoji"><span>✅</span></div>
-                            <div class="text-column"><strong>10 / 15</strong>Correct Answers</div>
+                            <div class="text-column"><strong><span id="displayCorrectAnswer">10</span> /
+                                    15</strong>Correct Answers</div>
                         </div>
                     </div>
                 </div>
@@ -84,28 +118,28 @@
                 <h3>Syllabus Wise Analysis</h3>
                 <div class="progress-group">
                     <label>HTML Tools, Forms, History</label>
-                    <div class="percentage">
+                    <div class="percentage blue-div">
                         <div class="progress-bar blue-bar"></div>
                         <strong>80%</strong>
                     </div>
                 </div>
                 <div class="progress-group">
                     <label>Tags & References in HTML</label>
-                    <div class="percentage">
+                    <div class="percentage orange-div">
                         <div class="progress-bar orange-bar"></div>
                         <strong>60%</strong>
                     </div>
                 </div>
                 <div class="progress-group">
                     <label>Tables & References in HTML</label>
-                    <div class="percentage">
+                    <div class="percentage red-div">
                         <div class="progress-bar red-bar"></div>
                         <strong>24%</strong>
                     </div>
                 </div>
                 <div class="progress-group">
                     <label>Tables & CSS Basics</label>
-                    <div class="percentage">
+                    <div class="percentage green-div">
                         <div class="progress-bar green-bar"></div>
                         <strong>96%</strong>
                     </div>
@@ -113,7 +147,8 @@
             </div>
             <div class="question-analysis">
                 <h3>Question Analysis</h3>
-                <p><strong>You scored 10 question correct out of 15.</strong> However it still needs some improvments</p>
+                <p><strong>You scored 10 question correct out of 15.</strong> However it still needs some improvments
+                </p>
                 <div id="donut_single"></div>
             </div>
         </main2>

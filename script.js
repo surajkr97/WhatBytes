@@ -1,128 +1,96 @@
-// Placeholder for future interactivity
-// document.addEventListener("DOMContentLoaded", () => {
-//     console.log("Page loaded and ready!");
-//   });
-
-// --------
-google.charts.load('current', { 'packages': ['corechart'] });
-google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-    var data = new google.visualization.DataTable();
-    data.addColumn('number', 'X');
-    data.addColumn('number', 'Percentile');
-
-    data.addRows([
-        [0, 0],
-        [5, 2],
-        [10, 8],
-        [15, 15],
-        [20, 25],
-        [25, 30],
-        [30, 40],
-        [35, 50],
-        [40, 65],
-        [45, 80],
-        [50, 90],
-        [55, 85],
-        [60, 75],
-        [65, 65],
-        [70, 50],
-        [75, 35],
-        [100, 3]
-    ]);
-
-    var options = {
-        // title: 'Your Percentile Distribution',
-        hAxis: {
-            // title: 'Percentile',
-            ticks: [0, 25, 50, 75, 100],
-            gridlines: { color: 'none' },
-            baselineColor: 'none',
-        },
-        vAxis: {
-            // title: 'Score',
-            gridlines: { color: 'none' },
-            baselineColor: 'none',
-            textPosition: 'none',
-        },
-        // width: 900,
-        // height: 500,
-        legend: 'none',
-        curveType: 'function', // Smoothens the line
-        pointSize: 3, // Visible points
-        lineWidth: 1.2, // Thickness of the line
-    };
-
-    var chart = new google.visualization.LineChart(document.getElementById('line_top_x'));
-    chart.draw(data, options);
-}
-
-// --------
+// Load Google Charts for Line Chart
 google.charts.load('current', { packages: ['corechart'] });
+google.charts.setOnLoadCallback(drawChart);
 google.charts.setOnLoadCallback(drawChart2);
 
-function drawChart2() {
-  // Define the data
-  const data = google.visualization.arrayToDataTable([
-    ['Effort', 'Amount given'],
-    ['My all', 80],
-    ['Remaining', 20] // Placeholder for the rest of the chart
+// Line Chart Function
+function drawChart() {
+  const data = new google.visualization.DataTable();
+  data.addColumn('number', 'X');
+  data.addColumn('number', 'Percentile');
+
+  data.addRows([
+    [0, 0], [5, 2], [10, 8], [15, 15],
+    [20, 25], [25, 30], [30, 40], [35, 50],
+    [40, 65], [45, 80], [50, 90], [55, 85],
+    [60, 75], [65, 65], [70, 50], [75, 35], [100, 3],
   ]);
 
-  // Define the options
+  const options = {
+    hAxis: { ticks: [0, 25, 50, 75, 100], gridlines: { color: 'none' }, baselineColor: 'none' },
+    vAxis: { gridlines: { color: 'none' }, baselineColor: 'none', textPosition: 'none' },
+    legend: 'none',
+    curveType: 'function',
+    pointSize: 3,
+    lineWidth: 1.2,
+  };
+
+  const chart = new google.visualization.LineChart(document.getElementById('line_top_x'));
+  chart.draw(data, options);
+}
+
+// Donut Chart Function
+function drawChart2(correctAnswer = 0) {
+  const data = google.visualization.arrayToDataTable([
+    ['Effort', 'Amount given'],
+    ['My all', correctAnswer],
+    ['Remaining', 15 - correctAnswer], // Dynamically update the remainder
+  ]);
+
   const options = {
     pieHole: 0.5,
-    pieSliceTextStyle: {
-      color: 'black',
-    },
-    slices: {
-      0: { color: '#4f63f5' }, // Main slice color
-      1: { color: '#e7eeff' } // Color for the remaining chart
-    },
+    pieSliceTextStyle: { color: 'black' },
+    slices: { 0: { color: '#4f63f5' }, 1: { color: '#e7eeff' } },
     legend: 'none',
   };
 
-  // Draw the chart
   const chart = new google.visualization.PieChart(document.getElementById('donut_single'));
   chart.draw(data, options);
 }
 
-// ---------
+// Popup and Overlay Logic
+const openPopupBtn = document.getElementById('openPopupBtn');
+const popup = document.getElementById('popup');
+const overlay = document.getElementById('overlay');
+const dataForm = document.getElementById('dataForm');
+const displayRank = document.getElementById('displayRank');
+const displayPercentile = document.getElementById('displayPercentile');
+const displayCorrectAnswer = document.getElementById('displayCorrectAnswer');
 
-// // Elements
-// const updateButton = document.getElementById("updateButton");
-// const updateModal = document.getElementById("updateModal");
-// const cancelButton = document.getElementById("cancelButton");
-// const updateForm = document.getElementById("updateForm");
-// const rankDisplay = document.getElementById("rank");
-// const percentileDisplay = document.getElementById("percentile");
-// const scoreDisplay = document.getElementById("score");
+// Open popup
+openPopupBtn.addEventListener('click', () => {
+  popup.style.display = 'block';
+  overlay.style.display = 'block';
+});
 
-// // Show modal
-// updateButton.addEventListener("click", () => {
-//   updateModal.style.display = "flex";
-// });
+// Close popup
+overlay.addEventListener('click', () => {
+  popup.style.display = 'none';
+  overlay.style.display = 'none';
+});
 
-// // Hide modal
-// cancelButton.addEventListener("click", () => {
-//   updateModal.style.display = "none";
-// });
+// Handle form submission
+dataForm.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-// // Update data on save
-// updateForm.addEventListener("submit", (event) => {
-//   event.preventDefault();
+  // Retrieve input values
+  const rankInput = document.getElementById('rank');
+  const percentileInput = document.getElementById('percentile');
+  const correctAnswerInput = document.getElementById('correctAnswer');
 
-//   const rank = document.getElementById("rankInput").value;
-//   const percentile = document.getElementById("percentileInput").value;
-//   const score = document.getElementById("scoreInput").value;
+  const rank = rankInput.value;
+  const percentile = percentileInput.value;
+  const correctAnswer = parseInt(correctAnswerInput.value, 10) || 0;
 
-//   // Update the main page
-//   rankDisplay.textContent = rank;
-//   percentileDisplay.textContent = `${percentile}%`;
-//   scoreDisplay.textContent = `${score} / 15`;
+  // Update display
+  displayRank.textContent = rank;
+  displayPercentile.textContent = percentile;
+  displayCorrectAnswer.textContent = correctAnswer;
 
-//   // Close the modal
-//   updateModal.style.display = "none";
-// });
+  // Refresh donut chart with the updated score
+  drawChart2(correctAnswer);
 
+  // Close popup
+  popup.style.display = 'none';
+  overlay.style.display = 'none';
+});

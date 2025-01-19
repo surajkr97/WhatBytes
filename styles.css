@@ -113,6 +113,22 @@ main {
     background: #0056b3;
 }
 
+.btn-cncl {
+    background: #fff;
+    color: #122683;
+    padding: 10px 25px;
+    border: 1px solid #122683;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 59%;
+    margin-right: 3%;
+}
+
+.btn-cncl:hover {
+    background: #0056b3;
+    color: #fff;
+}
+
 /* Statistics */
 .statistics {
     margin-top: 20px;
@@ -179,8 +195,8 @@ main {
 #line_top_x {
     height: 51vh;
     width: 44vw;
-    
-  }
+
+}
 
 /* Analysis */
 .analysis {
@@ -227,7 +243,11 @@ main {
 
 .progress-bar.blue-bar::before {
     background: #4389f6;
-    --value: 80%
+    --value: 80%;
+}
+
+.blue-div {
+    color: #4389f6;
 }
 
 .progress-bar.orange-bar::before {
@@ -235,9 +255,17 @@ main {
     --value: 60%;
 }
 
+.orange-div {
+    color: #ff8e42;
+}
+
 .progress-bar.red-bar::before {
     background: #fa5f5d;
     --value: 24%;
+}
+
+.red-div {
+    color: #fa5f5d;
 }
 
 .progress-bar.green-bar::before {
@@ -245,8 +273,8 @@ main {
     --value: 96%;
 }
 
-#blue-bar{
-    color: #4389f6;
+.green-div {
+    color: #2ec870;
 }
 
 /* Question Analysis */
@@ -266,4 +294,79 @@ main {
 #donut_single {
     width: 26vw;
     height: 44vh;
-  }
+}
+
+/* Styles for the popup */
+.popup {
+    /* display: none; */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+
+    height: 42vh;
+    width: 35vw;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    line-height: 35px;
+}
+
+/* Overlay style */
+.overlay {
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.num {
+    height: 30px;
+    width: 30px;
+    background-color: #122683;
+    display: inline-block;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rank-sec {
+    display: flex;
+}
+
+label {
+    margin-left: 3%;
+    flex: 2;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #122683;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 20px;
+}
+
+.heading img{
+    height: 40px;
+    position: absolute;
+    right: 0;
+    margin-right: 22px;
+}
+
+.heading h2{
+    margin-bottom: 30px;
+}

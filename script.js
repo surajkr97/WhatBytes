@@ -66,8 +66,8 @@ function drawChart2() {
   // Define the data
   const data = google.visualization.arrayToDataTable([
     ['Effort', 'Amount given'],
-    ['My all', 100],
-    ['Remaining', 0] // Placeholder for the rest of the chart
+    ['My all', 80],
+    ['Remaining', 20] // Placeholder for the rest of the chart
   ]);
 
   // Define the options
@@ -77,8 +77,8 @@ function drawChart2() {
       color: 'black',
     },
     slices: {
-      0: { color: 'blue' }, // Main slice color
-      1: { color: 'lightblue' } // Color for the remaining chart
+      0: { color: '#4f63f5' }, // Main slice color
+      1: { color: '#e7eeff' } // Color for the remaining chart
     },
     legend: 'none',
   };

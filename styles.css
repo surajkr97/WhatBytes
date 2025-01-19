@@ -191,13 +191,13 @@ main {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    line-height: 30px;
+    line-height: 35px;
     overflow: auto;
 }
 
 /* Progress Bars */
 .progress-group {
-    line-height: 52px;
+    line-height: 50px;
 }
 
 .percentage {

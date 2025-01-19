@@ -33,8 +33,8 @@ function drawChart() {
 function drawChart2(correctAnswer = 0) {
   const data = google.visualization.arrayToDataTable([
     ['Effort', 'Amount given'],
-    ['My all', correctAnswer],
-    ['Remaining', 15 - correctAnswer], // Dynamically update the remainder
+    ['Corrected', correctAnswer],
+    ['Wrong', 15 - correctAnswer], // Dynamically update the remainder
   ]);
 
   const options = {

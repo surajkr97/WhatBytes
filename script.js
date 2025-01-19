@@ -30,10 +30,10 @@ function drawChart() {
 }
 
 // Donut Chart Function
-function drawChart2(correctAnswer = 0) {
+function drawChart2(correctAnswer = 12) {
   const data = google.visualization.arrayToDataTable([
     ['Effort', 'Amount given'],
-    ['Corrected', correctAnswer],
+    ['Correct', correctAnswer],
     ['Wrong', 15 - correctAnswer], // Dynamically update the remainder
   ]);
 
@@ -46,16 +46,37 @@ function drawChart2(correctAnswer = 0) {
 
   const chart = new google.visualization.PieChart(document.getElementById('donut_single'));
   chart.draw(data, options);
+
+  // Add target emoji directly
+  const chartContainer = document.getElementById('donut_single');
+
+  // Create a div for the emoji
+  const emojiDiv = document.createElement('div');
+  emojiDiv.style.position = 'absolute';
+  emojiDiv.style.top = '50%';
+  emojiDiv.style.left = '50%';
+  emojiDiv.style.transform = 'translate(-50%, -50%)';
+  emojiDiv.style.fontSize = '2.5rem';
+  emojiDiv.textContent = '🎯'; // Add emoji to the div
+
+  // Add the emoji div on top of the chart
+  chartContainer.style.position = 'relative';
+  chartContainer.appendChild(emojiDiv);
+
 }
 
 // Popup and Overlay Logic
 const openPopupBtn = document.getElementById('openPopupBtn');
+const closePopupBtn = document.getElementById('closePopupBtn');
 const popup = document.getElementById('popup');
 const overlay = document.getElementById('overlay');
 const dataForm = document.getElementById('dataForm');
 const displayRank = document.getElementById('displayRank');
 const displayPercentile = document.getElementById('displayPercentile');
 const displayCorrectAnswer = document.getElementById('displayCorrectAnswer');
+const questionAnalysisScore = document.getElementById('questionAnalysisScore');
+const comparisonGraphPercentile = document.getElementById('comparisonGraphPercentile');
+
 
 // Open popup
 openPopupBtn.addEventListener('click', () => {
@@ -63,11 +84,17 @@ openPopupBtn.addEventListener('click', () => {
   overlay.style.display = 'block';
 });
 
-// Close popup
+// Close popup - overlay
 overlay.addEventListener('click', () => {
   popup.style.display = 'none';
   overlay.style.display = 'none';
 });
+
+// Close popup - cancelButton
+closePopupBtn.addEventListener('click', ()=> {
+  popup.style.display = 'none';
+  overlay.style.display = 'none';
+})
 
 // Handle form submission
 dataForm.addEventListener('submit', (event) => {
@@ -80,7 +107,7 @@ dataForm.addEventListener('submit', (event) => {
 
   const rank = rankInput.value;
   const percentile = percentileInput.value;
-  const correctAnswer = parseInt(correctAnswerInput.value, 10) || 0;
+  const correctAnswer = parseInt(correctAnswerInput.value);
 
   // Update display
   displayRank.textContent = rank;
@@ -89,6 +116,12 @@ dataForm.addEventListener('submit', (event) => {
 
   // Refresh donut chart with the updated score
   drawChart2(correctAnswer);
+
+  // Refresh questionAnalysisScore with the updated score
+  questionAnalysisScore.textContent = correctAnswer;
+
+  // Refresh questionAnalysisScore with the updated score
+  comparisonGraphPercentile.textContent = percentile;
 
   // Close popup
   popup.style.display = 'none';

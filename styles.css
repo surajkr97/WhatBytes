@@ -18,7 +18,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    /* padding: 0 20px; */
+    padding: 0 2%;
     border-bottom: 1px solid #ddd;
 }
 
@@ -45,8 +46,10 @@ header {
 
 /* Sidebar */
 .sidebar {
-    width: 15vw;
-    height: 126vh;
+    width: 20%;
+    max-width: 220px;
+    min-width: 100px;
+    height: 100vh;
     background: #fff;
     border-right: 1px solid #ddd;
     padding: 16px;
@@ -92,8 +95,11 @@ main {
 
 .card-header {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    justify-content: space-evenly;
 }
 
 .card-header img {
@@ -120,13 +126,18 @@ main {
     border: 1px solid #122683;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 59%;
+    /* margin-left: 20%; */
     margin-right: 3%;
 }
 
 .btn-cncl:hover {
     background: #0056b3;
     color: #fff;
+}
+
+.btn-sec {
+    display: flex;
+    justify-content: flex-end;
 }
 
 /* Statistics */
@@ -146,8 +157,8 @@ main {
 
 .stats {
     display: flex;
-    gap: 20px;
-    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: space-evenly;
 }
 
@@ -203,6 +214,7 @@ main {
     height: 50vh;
     width: 26vw;
     margin-top: 80px;
+    margin-right: 20px;
     padding: 5px 25px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -227,7 +239,7 @@ main {
 
 .progress-bar {
     height: 8px;
-    width: 300px;
+    width: 100%;
     background: #e5e5e5;
     border-radius: 4px;
     overflow: auto;
@@ -282,6 +294,7 @@ main {
     height: 61vh;
     width: 26vw;
     margin-top: 20px;
+    margin-right: 20px;
     padding: 5px 25px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -292,8 +305,10 @@ main {
 
 /* Pie Chart */
 #donut_single {
-    width: 26vw;
-    height: 44vh;
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    margin: 0 auto;
 }
 
 /* Styles for the popup */
@@ -308,8 +323,7 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 
-    height: 42vh;
-    width: 35vw;
+    width: 40%;
     border: 1px solid #ddd;
     border-radius: 8px;
     line-height: 35px;
@@ -360,13 +374,13 @@ input {
     height: 20px;
 }
 
-.heading img{
+.heading img {
     height: 40px;
     position: absolute;
     right: 0;
     margin-right: 22px;
 }
 
-.heading h2{
+.heading h2 {
     margin-bottom: 30px;
 }

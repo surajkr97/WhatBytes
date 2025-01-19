@@ -61,23 +61,25 @@
                     <div class="rank-sec">
                         <div class="num">1</div>
                         <label for="rank">Update your <b>Rank</b></label>
-                        <input type="number" id="rank" name="rank"><br><br>
+                        <input type="number" id="rank" name="rank" min="1" max="1000" required><br><br>
                     </div>
 
                     <div class="rank-sec">
                         <div class="num">2</div>
                         <label for="percentile">Update your <b>Percentile</b></label>
-                        <input type="number" id="percentile" name="percentile"><br><br>
+                        <input type="number" id="percentile" name="percentile" min="1" max="100" required><br><br>
                     </div>
 
                     <div class="rank-sec">
                         <div class="num">3</div>
                         <label for="correctAnswer">Update your <b>Current Score (out of 15)</b></label>
-                        <input type="number" id="correctAnswer" name="correctAnswer"><br><br>
+                        <input type="number" id="correctAnswer" name="correctAnswer" min="0" max="15" required><br><br>
                     </div>
 
-                    <button type="submit" class="btn-cncl">cancel</button>
-                    <button type="submit" class="btn">save ➔</button>
+                    <div class="btn-sec">
+                        <button type="submit" class="btn-cncl" id="closePopupBtn">cancel</button>
+                        <button type="submit" class="btn">save ➔</button>
+                    </div>
                 </form>
             </div>
 
@@ -87,16 +89,16 @@
                     <div class="stats">
                         <div class="stat-item">
                             <div class="emoji"><span>🏆</span></div>
-                            <div class="text-column"><strong><span id="displayRank">100</span></strong>Your Rank</div>
+                            <div class="text-column"><strong><span id="displayRank">9</span></strong>Your Rank</div>
                         </div>
                         <div class="stat-item">
                             <div class="emoji"><span>🗓️</span></div>
-                            <div class="text-column"><strong><span id="displayPercentile">30</span>%</strong>Percentile
+                            <div class="text-column"><strong><span id="displayPercentile">70</span>%</strong>Percentile
                             </div>
                         </div>
                         <div class="stat-item">
                             <div class="emoji"><span>✅</span></div>
-                            <div class="text-column"><strong><span id="displayCorrectAnswer">0</span> /
+                            <div class="text-column"><strong><span id="displayCorrectAnswer">12</span> /
                                     15</strong>Correct Answers</div>
                         </div>
                     </div>
@@ -105,8 +107,9 @@
 
             <div class="graph">
                 <h3>Comparison Graph</h3>
-                <p>You scored <strong>30%</strong> percentile, which is lower than the <br> average percentile
-                    <strong>72%</strong> of all engineers who took this assessment
+                <p>You scored <strong><span id="comparisonGraphPercentile">70</span>%</strong> percentile, which is
+                    lower than the <br> average percentile
+                    <strong>86%</strong> of all engineers who took this assessment
                 </p>
                 <div id="line_top_x"></div>
             </div>
@@ -147,7 +150,8 @@
             </div>
             <div class="question-analysis">
                 <h3>Question Analysis</h3>
-                <p><strong>You scored 10 question correct out of 15.</strong> However it still needs some improvments
+                <p><strong>You scored <span id="questionAnalysisScore">12</span> question correct out of 15.</strong>
+                    However it still needs some improvments
                 </p>
                 <div id="donut_single"></div>
             </div>

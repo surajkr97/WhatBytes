@@ -49,10 +49,17 @@ header {
     width: 20%;
     max-width: 220px;
     min-width: 100px;
-    height: 100vh;
+    /* height: 80; */
     background: #fff;
     border-right: 1px solid #ddd;
     padding: 16px;
+}
+
+/* Hide sidebar on smaller screens */
+@media screen and (max-width: 620px) {
+    .sidebar {
+        display: none;
+    }
 }
 
 .brand {

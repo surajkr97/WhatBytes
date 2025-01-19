@@ -1,0 +1,264 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    padding: 3px 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.username {
+    font-size: small;
+    font-weight: 900;
+    margin-left: 10px;
+    color: #555;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 15vw;
+    height: 126vh;
+    background: #fff;
+    border-right: 1px solid #ddd;
+    padding: 16px;
+}
+
+.brand {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 12px;
+    color: #555;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #f2f5fc;
+    color: #4d63d5;
+    border-radius: 0 25px 25px 0;
+}
+
+/* Main Content */
+main {
+    padding: 30px;
+}
+
+/* Card */
+.card {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 44vw;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header img {
+    height: 70px;
+}
+
+.btn {
+    background: #122683;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* Statistics */
+.statistics {
+    margin-top: 20px;
+}
+
+.stat-card {
+    background: #fff;
+    padding: 15px;
+    width: 44vw;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.stat-item {
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #f0f0f0;
+}
+
+.emoji {
+    background: #f0f0f0;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.emoji span {
+    font-size: x-large;
+}
+
+.text-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Graph */
+.graph {
+    height: 70vh;
+    width: 44vw;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 30px;
+}
+
+#line_top_x {
+    height: 51vh;
+    width: 44vw;
+    
+  }
+
+/* Analysis */
+.analysis {
+    height: 50vh;
+    width: 26vw;
+    margin-top: 80px;
+    padding: 5px 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 30px;
+}
+
+/* Progress Bars */
+.progress-group {
+    line-height: 52px;
+}
+
+.percentage {
+    display: flex;
+}
+
+.percentage strong {
+    margin-top: -22px;
+    margin-left: 32px;
+}
+
+.progress-bar {
+    height: 8px;
+    width: 300px;
+    background: #e5e5e5;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: var(--value);
+}
+
+.progress-bar.blue-bar::before {
+    background: #4389f6;
+    --value: 80%
+}
+
+.progress-bar.orange-bar::before {
+    background: #ff8e42;
+    --value: 60%;
+}
+
+.progress-bar.red-bar::before {
+    background: #fa5f5d;
+    --value: 24%;
+}
+
+.progress-bar.green-bar::before {
+    background: #2ec870;
+    --value: 96%;
+}
+
+#blue-bar{
+    color: #4389f6;
+}
+
+/* Question Analysis */
+.question-analysis {
+    height: 61vh;
+    width: 26vw;
+    margin-top: 20px;
+    padding: 5px 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 30px;
+}
+
+/* Pie Chart */
+#donut_single {
+    width: 26vw;
+    height: 44vh;
+  }

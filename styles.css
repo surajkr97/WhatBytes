@@ -86,7 +86,24 @@ header {
 
 /* Main Content */
 main {
+    /* flex: 1; Allow main to take the remaining space */
     padding: 30px;
+}
+
+/* Ensure Single Column on Smaller Screens */
+@media screen and (max-width: 620px) {
+    .analysis,
+    .question-analysis {
+        
+        margin: 30px; /* Add vertical spacing */
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Stack items vertically */
+    }
 }
 
 /* Card */
@@ -96,7 +113,6 @@ main {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 44vw;
     overflow: auto;
 }
 
@@ -155,7 +171,6 @@ main {
 .stat-card {
     background: #fff;
     padding: 15px;
-    width: 44vw;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -199,8 +214,6 @@ main {
 
 /* Graph */
 .graph {
-    height: 70vh;
-    width: 44vw;
     margin-top: 20px;
     padding: 15px;
     border: 1px solid #ddd;
@@ -218,11 +231,9 @@ main {
 
 /* Analysis */
 .analysis {
-    height: 50vh;
-    width: 26vw;
     margin-top: 80px;
     margin-right: 20px;
-    padding: 5px 25px;
+    padding: 10px 25px 25px 25px;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -298,8 +309,6 @@ main {
 
 /* Question Analysis */
 .question-analysis {
-    height: 61vh;
-    width: 26vw;
     margin-top: 20px;
     margin-right: 20px;
     padding: 5px 25px;
@@ -330,7 +339,7 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 
-    width: 40%;
+    min-width: 35%;
     border: 1px solid #ddd;
     border-radius: 8px;
     line-height: 35px;
